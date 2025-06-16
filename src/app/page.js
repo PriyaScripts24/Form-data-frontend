@@ -24,13 +24,16 @@ export default function ContactForm() {
     setSubmitted(false);
 
     try {
-      const response = await fetch("http://localhost:5000/api/submit-form", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      });
+      const response = await fetch(
+        "https://form-data-backend.vercel.app/api/submit-form",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to submit form");
